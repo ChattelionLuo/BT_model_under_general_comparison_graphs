@@ -1,6 +1,6 @@
 # Reproducibility file for "Uniform consistency of maximum likelihood estimation in the Bradley–Terry model under general graphs"
 
-This folder contains the code for the six figures in the paper's numerical section. Each script generates its own simulation outcomes and writes a 300 dpi PNG and a PDF to `results/`. The processed ATP comparison graph and the tennis-network display coordinates are included. No simulated outcomes or finished figures are included.
+This folder contains the code for the six figures in the paper's numerical section. Each script generates its own simulation outcomes and writes a PNG and a PDF to `results/`. The processed ATP comparison graph and the tennis-network display coordinates are included. No simulated outcomes or finished figures are included.
 
 ## 1. Folder structure
 
