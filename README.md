@@ -1,4 +1,4 @@
-# Reproducibility file for "Bradley--Terry model under general comparison graphs"
+# Reproducibility file for "Uniform consistency of maximum likelihood estimation in the Bradley–Terry model under general graphs"
 
 This folder contains the code for the six figures in the paper's numerical section. Each script generates its own simulation outcomes and writes a 300 dpi PNG and a PDF to `results/`. The processed ATP comparison graph and the tennis-network display coordinates are included. No simulated outcomes or finished figures are included.
 
@@ -40,7 +40,7 @@ Run all figures with `python run_all.py`, or run `python Figure1.py` through `py
 
 ### Erdős–Rényi graphs
 
-- **Figure 1:** Generates a graph with $p_{ij}^{(n)}=0.75n^{-1/2}$ for $n=2^{11},\ldots,2^{14}$ and centered utilities drawn from $\operatorname{Unif}(-1.5,1.5)$. It reports the uniform error, the mean pairwise error against $\sqrt{\mathscr R_{\mathcal G_n^*}(i\leftrightarrow j)}$ for 500 fixed pairs at each $n$, and the coverage of MLE plug-in 95% pairwise intervals.
+- **Figure 1:** Generates a graph with $p_{ij}^{(n)}=0.75n^{-1/2}$ for $n=2^{11},\ldots,2^{14}$ and centered utilities drawn from `Unif(-1.5, 1.5)`. It reports the uniform error, the mean pairwise error against $\sqrt{\mathscr R_{\mathcal G_n^*}(i\leftrightarrow j)}$ for 500 fixed pairs at each $n$, and the coverage of MLE plug-in 95% pairwise intervals.
 - **Figure 2:** Fixes $n=2^{13}$ and raises the edge probability incident to a set of 20 vertices through six levels. It compares all 190 within-set pairs with 190 pairs outside the set, showing how pairwise error and plug-in interval coverage change with local graph density.
 
 ### Imbalanced complete bipartite graphs
