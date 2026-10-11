@@ -36,7 +36,7 @@ Use the virtual environment's Python to run the commands below (`.venv/bin/pytho
 
 Run all figures with `python run_all.py`, or run `python Figure1.py` through `python Figure6.py` individually. The graph, utilities, comparison counts, and random seeds are fixed as specified in each experiment.
 
-`Figure1.py`, `Figure2.py`, and `Figure6.py` support parallel workers, for example `python Figure1.py --workers 32` or `python run_all.py --workers 32`. On Linux the ER scripts use processes; on Windows they use threads. The remaining scripts run directly. As a timing reference, on server8 (256 logical AMD EPYC cores), the amortized wall time per replication across all design points was approximately 0.34 s for Figure 1, 0.11 s for Figure 2, 0.03 s for Figure 3, 0.02 s for Figure 4, and 0.21 s for Figure 6, using 96, 64, and 48 workers for Figures 1, 2, and 6, respectively. Figure 5 is deterministic and took about 10 s.
+`Figure1.py`, `Figure2.py`, and `Figure6.py` support parallel workers, for example `python Figure1.py --workers 32` or `python run_all.py --workers 32`. On Linux the ER scripts use processes; on Windows they use threads. The remaining scripts run directly. As a timing reference, on a cluster with 256 logical AMD EPYC cores, the amortized wall time per replication across all design points was approximately 0.34 s for Figure 1, 0.11 s for Figure 2, 0.03 s for Figure 3, 0.02 s for Figure 4, and 0.21 s for Figure 6, using 96, 64, and 48 workers for Figures 1, 2, and 6, respectively. Figure 5 is deterministic and took about 10 s.
 
 ### Erdős–Rényi graphs
 
