@@ -6,12 +6,12 @@ This folder contains the code for the six figures in the paper's numerical secti
 
 ```text
 BT_graph_experiments/
-├── Figure1.py              Homogeneous Erdős–Rényi experiment
-├── Figure2.py              Locally heterogeneous Erdős–Rényi experiment
-├── Figure3.py              Bipartite crossover at fixed n
-├── Figure4.py              Bipartite rate sequences
-├── Figure5.py              ATP network and resistance distribution
-├── Figure6.py              ATP pairwise errors and interval coverage
+├── Figure1.py              Generalized Erd˝os–Rényi graphs
+├── Figure2.py              Generalized Erd˝os–Rényi graphs
+├── Figure3.py              Imbalanced complete bipartite graphs
+├── Figure4.py              Imbalanced complete bipartite graphs
+├── Figure5.py              A tennis comparison network
+├── Figure6.py              A tennis comparison network
 ├── run_all.py              Runs Figures 1–6 in order
 ├── package/                BT estimation, graph calculations, and generators
 ├── data/tennis/            Processed comparisons, fitted utilities, and layout
