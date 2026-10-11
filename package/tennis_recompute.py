@@ -1,5 +1,3 @@
-"""Recompute BT outcome draws and MLE plug-in coverage on the ATP graph."""
-
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
@@ -49,8 +47,7 @@ def run(data_dir: Path, out_dir: Path, reps: int, workers: int):
             raise RuntimeError("Too few finite MLEs")
         wins_a = rng.binomial(matches.astype(np.int64), probability).astype(float)
         wins_b = matches - wins_a
-        # Ensure the win-directed graph is strongly connected.
-        if not strongly_connected_outcomes(n, a, b, wins_a, wins_b):
+        if not strongly_connected_outcomes(n, a, b, wins_a, wins_b):  # finite MLE
             continue
         errors[accepted] = fit_mle(a, b, wins_a, wins_b, n, start=truth) - truth
         accepted += 1

@@ -1,5 +1,3 @@
-"""Bradley--Terry likelihood and graph calculations used by the experiments."""
-
 from __future__ import annotations
 
 import numpy as np
@@ -31,7 +29,6 @@ def _newman_sweep(u, indptr, neighbors, wins, losses):
 
 
 def fit_mle(a, b, wins_a, wins_b, n, start=None, tolerance=1e-8):
-    """Joint centered MLE; every edge contributes its observed win counts."""
     source = np.r_[a, b]
     target = np.r_[b, a]
     wins = np.r_[wins_a, wins_b].astype(float)
@@ -77,9 +74,8 @@ def fisher_laplacian(n, a, b, matches, u):
 
 
 def pseudoinverse(lap):
-    """Centered Laplacian pseudoinverse for the 1,076-player graph."""
     n = lap.shape[0]
     factor = cho_factor(lap.toarray() + np.full((n, n), 1 / n),
                        lower=True, check_finite=False)
-    inverse = cho_solve(factor, np.eye(n), check_finite=False) - 1 / n
+    inverse = cho_solve(factor, np.eye(n), check_finite=False) - 1 / n  # center
     return (inverse + inverse.T) / 2

@@ -1,4 +1,3 @@
-"""All within-group contrasts on an incident-community polynomial ER graph."""
 from __future__ import annotations
 
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
@@ -23,7 +22,6 @@ Q_FACTOR = .75
 BASE_DEGREE_POWER = .5
 Z = 1.959963984540054
 GRAPH_SEED = 20261007 + N + int(100*A) + 125
-
 GRAPHS = []
 U = None
 GROUPS = []
@@ -37,12 +35,11 @@ def fisher_lap(a, b, u):
 
 
 def group_resistances(lap, groups, initial=None):
-    """Get every within-group resistance using H-1 Laplacian solves per group."""
     diagonal = lap.diagonal()
     pre = LinearOperator((N,N), matvec=lambda x:x/diagonal)
     all_r, all_solutions = [], []
     for gidx, vertices in enumerate(groups):
-        anchor = vertices[0]
+        anchor = vertices[0]  # H-1 solves give all within-group resistances
         solutions = np.empty((len(vertices)-1,N))
         for k, target in enumerate(vertices[1:]):
             rhs = np.zeros(N)
@@ -124,8 +121,7 @@ def shard(task):
         if attempts>30*count:
             raise RuntimeError(f"Finite MLE too rare in tier {tier}")
         wins = rng.binomial(1,win_p).astype(float)
-        # Ensure the win-directed graph is strongly connected.
-        if not strongly_connected_outcomes(N,a,b,wins,1-wins):
+        if not strongly_connected_outcomes(N,a,b,wins,1-wins):  # finite MLE
             continue
         fit = fit_mle(a,b,wins,1-wins,N,start=U,tolerance=1e-8)
         r,_ = group_resistances(fisher_lap(a,b,fit),GROUPS,
@@ -155,9 +151,7 @@ def run(out_path,reps,workers,shards_per_tier,seed):
     attempts = np.zeros(len(ps),dtype=int)
     workers = min(workers,os.cpu_count() or workers,len(tasks))
     print(f"running {len(tasks)} shards with {workers} workers",flush=True)
-    # Forked workers share the prepared fixed graphs without copying them.
-    # Windows retains threads because its spawned workers cannot inherit globals.
-    if sys.platform.startswith("linux"):
+    if sys.platform.startswith("linux"):  # fork shares the prepared graphs
         executor = ProcessPoolExecutor
         options = {"mp_context": get_context("fork")}
     else:

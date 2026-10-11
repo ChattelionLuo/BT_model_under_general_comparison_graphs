@@ -1,4 +1,3 @@
-"""Reproduce a figure from the generalized ER experiment."""
 from __future__ import annotations
 import argparse
 import os
@@ -96,7 +95,7 @@ def homogeneous(uniform, out_dir):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--reps", type=int, default=1000)
     parser.add_argument("--workers", type=int, default=min(4, os.cpu_count() or 1))
     args = parser.parse_args()

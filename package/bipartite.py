@@ -1,4 +1,3 @@
-"""Joint MLE and analytic approximation for the bipartite design."""
 from __future__ import annotations
 import numpy as np
 from scipy.special import expit, ndtr

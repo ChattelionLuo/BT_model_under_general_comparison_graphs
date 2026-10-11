@@ -1,4 +1,3 @@
-"""Reproduce a bipartite manuscript figure."""
 from __future__ import annotations
 import argparse
 from pathlib import Path
@@ -83,13 +82,14 @@ def plot_crossover(frame, name, save_pdf=True):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--reps", type=int, default=1000)
     args = parser.parse_args()
     set_style()
     output = ROOT / "results"
     output.mkdir(exist_ok=True)
     rows = []
+    # Vary L at n=2048, then compare the normalized crossover at other n.
     b, s = coefficients(2048)
     lc = (b / (s * np.sqrt(2 / np.pi)))**2 * 2046
     for ratio in [.09, .13, .20, .30, .44, .66, 1., 1.5, 2.25, 3.4, 5., 7.5]:

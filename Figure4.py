@@ -1,4 +1,3 @@
-"""Reproduce a bipartite manuscript figure."""
 from __future__ import annotations
 import argparse
 from pathlib import Path
@@ -59,13 +58,14 @@ def plot_sequences(frame,name):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--reps", type=int, default=1000)
     args = parser.parse_args()
     set_style()
     output = ROOT / "results"
     output.mkdir(exist_ok=True)
     rows = []
+    # Three scalings of L_n as n grows.
     for beta, mult in [(.5, 1.), (1., .10), (1.5, 1.)]:
         for n in [256, 512, 1024, 2048, 4096, 8192]:
             L = int(np.ceil(mult * n**beta))

@@ -1,5 +1,3 @@
-"""Regenerate all six figures for the numerical experiments."""
-
 import argparse
 from pathlib import Path
 import subprocess
@@ -10,7 +8,7 @@ FIGURES = tuple(f"Figure{i}.py" for i in range(1, 7))
 PARALLEL_FIGURES = {"Figure1.py", "Figure2.py", "Figure6.py"}
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument("--workers", type=int, default=None)
     args = parser.parse_args()
     for figure in FIGURES:

@@ -1,4 +1,3 @@
-"""Reproduce a manuscript figure for the original ATP graph."""
 from __future__ import annotations
 from pathlib import Path
 import shutil

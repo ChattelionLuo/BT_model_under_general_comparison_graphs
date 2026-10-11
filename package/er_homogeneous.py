@@ -1,4 +1,3 @@
-"""Polynomial-degree ER errors and exact MLE plug-in intervals."""
 from __future__ import annotations
 
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
@@ -58,9 +57,8 @@ def prepare():
             raise ValueError(f"invalid p at n={n}")
         rng=np.random.default_rng(20261026+n)
         u=rng.uniform(-AMPLITUDE,AMPLITUDE,n);u-=u.mean()
-        # Row-wise draws preserve the original RNG order without a dense n-by-n array.
         rows,cols=[],[]
-        for i in range(n-1):
+        for i in range(n-1):  # avoid a dense n-by-n random array
             chosen=np.flatnonzero(rng.random(n-i-1)<q)
             rows.append(np.full(len(chosen),i,dtype=np.int32))
             cols.append((i+1+chosen).astype(np.int32))
@@ -95,8 +93,7 @@ def shard(task):
         if attempts>20*count:
             raise RuntimeError(f"finite MLE too rare for n={n}")
         wins=rng.binomial(1,win_p).astype(float)
-        # Ensure the win-directed graph is strongly connected.
-        if not strongly_connected_outcomes(n,a,b,wins,1-wins):
+        if not strongly_connected_outcomes(n,a,b,wins,1-wins):  # finite MLE
             continue
         fit=fit_mle(a,b,wins,1-wins,n,start=u,tolerance=1e-8)
         node_error=fit-u
@@ -127,9 +124,7 @@ def run(out_path,reps,workers,shards_per_n,seed):
     plugin_r=np.empty_like(errors)
     attempts=np.zeros(len(NS),dtype=int)
     workers=min(workers,os.cpu_count() or workers,len(tasks))
-    # Forked workers share the prepared fixed graphs without copying them.
-    # Windows retains threads because its spawned workers cannot inherit globals.
-    if sys.platform.startswith("linux"):
+    if sys.platform.startswith("linux"):  # fork shares the prepared graphs
         executor = ProcessPoolExecutor
         options = {"mp_context": get_context("fork")}
     else:

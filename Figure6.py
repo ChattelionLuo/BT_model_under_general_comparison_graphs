@@ -1,4 +1,3 @@
-"""Reproduce a manuscript figure for the original ATP graph."""
 from __future__ import annotations
 import argparse
 import os
@@ -166,11 +165,12 @@ def inference_figure(cloud, highlight, all_pair_coverage):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser()
     parser.add_argument('--reps', type=int, default=1000)
     parser.add_argument('--workers', type=int, default=min(4, os.cpu_count() or 1))
     args = parser.parse_args()
     set_style()
+    # Refit the outcomes on the observed graph before evaluating coverage.
     from package.tennis_recompute import run
     errors, all_pair_coverage = run(DATA, RESULTS, args.reps, args.workers)
     i, j, sqrt_r = graph_geometry()
