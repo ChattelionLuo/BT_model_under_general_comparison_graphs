@@ -1,0 +1,10 @@
+pair,name_i,name_j,i,j,direct_matches,sqrt_count_r,count_r_percentile,sqrt_fisher_r
+Roger Federer--Rafael Nadal,Roger Federer,Rafael Nadal,732,833,40,0.0376444969414979,3.458113599031728e-06,0.1019599828225805
+Pete Sampras--Andre Agassi,Pete Sampras,Andre Agassi,491,448,34,0.043412086321371,7.953661277772975e-05,0.1055283470413897
+Jimmy Connors--Ivan Lendl,Jimmy Connors,Ivan Lendl,41,172,34,0.0460358147418745,0.000274920031123,0.1188532470341727
+Bjorn Borg--Holger Rune,Bjorn Borg,Holger Rune,91,1065,0,0.1211364904944033,0.4268159419036915,0.2919154015615846
+Roger Federer--Arthur Fils,Roger Federer,Arthur Fils,732,1071,0,0.1291754872192492,0.4983988934036483,0.2719004726647976
+Jannik Sinner--Ben Shelton,Jannik Sinner,Ben Shelton,1053,1074,3,0.126679038881945,0.4771159332584075,0.2733390766167184
+Roger Federer--Juncheng Shang,Roger Federer,Juncheng Shang,732,1072,0,0.1919859826729517,0.9188294285467278,0.4121258523764018
+Carlos Alcaraz--Juncheng Shang,Carlos Alcaraz,Juncheng Shang,1063,1072,1,0.2010512687793366,0.9468159419036916,0.4399007398750688
+Pete Sampras--Hamad Medjedovic,Pete Sampras,Hamad Medjedovic,491,1069,0,0.2090798245955578,0.9646165816547072,0.4321047395609207
