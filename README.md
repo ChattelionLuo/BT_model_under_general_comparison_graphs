@@ -40,7 +40,7 @@ Run all figures with `python run_all.py`, or run `python Figure1.py` through `py
 
 ### Erdős–Rényi graphs
 
-- **Figure 1:** Generates a graph with $p_{ij}^{(n)}=0.75n^{-1/2}$ for $n=2^{11},\ldots,2^{14}$ and centered utilities drawn from $\text{Unif}(-1.5, 1.5$`. It reports the uniform error, the mean pairwise error against $\sqrt{\mathscr R_{\mathcal G_n^*}(i\leftrightarrow j)}$ for 500 fixed pairs at each $n$, and the coverage of MLE plug-in 95% pairwise intervals.
+- **Figure 1:** Generates a graph with $p_{ij}^{(n)}=0.75n^{-1/2}$ for $n=2^{11},\ldots,2^{14}$ and centered utilities drawn from $\text{Unif}(-1.5, 1.5)$`. It reports the uniform error, the mean pairwise error against $\sqrt{\mathscr R_{\mathcal G_n^*}(i\leftrightarrow j)}$ for 500 fixed pairs at each $n$, and the coverage of MLE plug-in 95% pairwise intervals.
 - **Figure 2:** Fixes $n=2^{13}$ and raises the edge probability incident to a set of 20 vertices through six levels. It compares all 190 within-set pairs with 190 pairs outside the set, showing how pairwise error and plug-in interval coverage change with local graph density.
 
 ### Imbalanced complete bipartite graphs
