@@ -54,3 +54,15 @@ Run all figures with `python run_all.py`, or run `python Figure1.py` through `py
 - **Figure 6:** Keeps the observed match counts and uses the original-data BT MLE as the generating utility. It resamples outcomes, refits the joint MLE, and constructs 95% pairwise intervals using the MLE plug-in Fisher resistance. The left panel samples pairs from three resistance ranges and marks nine named pairs. The right panel shows their coverage against the coverage range of all 578,350 pairs.
 
 The processed ATP data contain 1,076 players, 63,314 compared pairs, and 124,005 matches. See [`data/tennis/SOURCE.md`](data/tennis/SOURCE.md) for preprocessing, provenance, and attribution.
+
+## Citation
+
+You can cite:
+
+```bibtex
+@article{han2026bradley,
+  title={Bradley-Terry model under general comparison graphs},
+  author={Ruijian Han and Yuanhang Luo and Yiming Xu},
+  journal={arXiv preprint arXiv:2610.06237},
+  year={2026}
+}
